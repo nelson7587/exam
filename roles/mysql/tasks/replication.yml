@@ -1,0 +1,27 @@
+---
+  - hosts: BDMaster
+    become: true
+    tasks:
+
+      - name: create a backup
+        mysql_db:
+          name: database
+          state: dump
+          target: /home/itesciadmin/database.sql
+          login_host: localhost
+          login_user: root
+          login_password: 'itescia'
+
+
+      - name: copy the database to the replicat server
+        raw: scp /home/itesciadmin/database.sql root@10.0.0.142:/home/itesciadmin/database.sql
+
+      - name: import the database
+        mysql_db:
+          name: wordpress
+          state: import
+          target: /home/itesciadmin/wordpress.sql
+          login_host: 10.0.0.142
+          login_user: root
+          login_password: 'itescia'
+          #delegate_to: neo_development
