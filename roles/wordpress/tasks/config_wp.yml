@@ -1,12 +1,12 @@
 - name: copy wp-config-sample.php 
   become: true
-   command: cp /var/www/{{ item }}/wordpress/wp-config-sample.php /var/www/{{ item }}/wordpress/wp-config.php
+  command: cp /var/www/{{ item }}/wp-config-sample.php /var/www/{{ item }}/wp-config.php
   with_items: "{{ client_list }}"
 
 - name: db name
   become: true
   lineinfile:
-    path: /var/www/{{ item }}/wordpress/wp-config.php
+    path: /var/www/{{ item }}/wp-config.php
     regexp: '^database_name_here'
     line: define('DB_NAME', '{{ item }}_db')
   with_items: "{{ client_list }}"
@@ -14,7 +14,7 @@
 - name: db user
   become: true
   lineinfile:
-    path: /var/www/{{ item }}/wordpress/wp-config.php
+    path: /var/www/{{ item }}/wp-config.php
     regexp: '^username_here'
     line: define('DB_USER', 'itesciadmin')
   with_items: "{{ client_list }}"
@@ -22,7 +22,7 @@
 - name: db password
   become: true
   lineinfile:
-    path: /var/www/{{ item }}/wordpress/wp-config.php
+    path: /var/www/{{ item }}/wp-config.php
     regexp: '^password_here'
     line: define('DB_PASSWORD', 'itescia')
   with_items: "{{ client_list }}"
@@ -30,6 +30,7 @@
 - name: db host
   become: true
   lineinfile:
-    path: /var/www/{{ item }}/wordpress/wp-config.php
+    path: /var/www/{{ item }}/wp-config.php
     regexp: '^DB_HOST'
     line: define('DB_HOST', '10.0.0.141')
+  with_items: "{{ client_list }}"

@@ -7,7 +7,7 @@
          zone: itescia05.local
          record: "{{ item }}"
          type: CNAME
-         value: web
+         value: web1
          state: present
-      with_items: "{{ client_list }}"
+      with_items: client1
 

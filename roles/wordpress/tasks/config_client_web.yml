@@ -14,5 +14,14 @@
     line: '	DocumentRoot /var/www/{{ item }}'
   with_items: "{{ client_list }}"
 
+- name: VirtualHost on client conf apache2
+  become: true
+  lineinfile:
+    path: /etc/apache2/sites-available/{{ item }}.conf
+    regexp: '^<VirtualHost'
+    line: '<VirtualHost {{ inventory_hostname }}:80>'
+  with_items: "{{ client_list }}"
+
+
 
 
