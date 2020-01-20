@@ -2,6 +2,6 @@
 # tasks file for mysql
 
 
-
-
-
+include: configure_dbserver.yml
+include: create_database.yml
+include: replication.yml
