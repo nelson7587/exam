@@ -1,2 +1,5 @@
 ---
 # vars file for wordpress
+client_list:
+   - client1
+   - client2
