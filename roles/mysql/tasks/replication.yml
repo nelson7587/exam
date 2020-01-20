@@ -14,7 +14,7 @@
 
 
       - name: copy the database to the replicat server
-        raw: scp /home/itesciadmin/database.sql root@10.0.0.142:/home/itesciadmin/database.sql
+        raw: rsync /home/itesciadmin/database.sql root@10.0.0.142:/home/itesciadmin/database.sql
 
       - name: import the database
         mysql_db:
@@ -24,4 +24,3 @@
           login_host: 10.0.0.142
           login_user: root
           login_password: 'itescia'
-          #delegate_to: neo_development
