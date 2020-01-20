@@ -1,7 +1,9 @@
 - name: a2ensite client web
   become: true
   command: a2ensite {{ item }}.conf
-  with_items: "{{ client_list }}"
+  with_items: 
+     - "{{ client_list_w1 }}"
+     #- "{{ client_list_w2 }}"
 
 - name: Run servers graceful
   become: true

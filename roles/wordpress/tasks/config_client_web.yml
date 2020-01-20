@@ -4,7 +4,9 @@
     path: /etc/apache2/sites-available/{{ item }}.conf
     regexp: '^	#ServerName'
     line: '	ServerName www.{{ item }}.itescia05.local'
-  with_items: "{{ client_list }}"
+  with_items: 
+     - "{{ client_list_w1 }}"
+     #- "{{ client_list_w2 }}"
 
 - name: DocumentRoot on client conf apache2
   become: true
@@ -12,7 +14,9 @@
     path: /etc/apache2/sites-available/{{ item }}.conf
     regexp: '^	DocumentRoot'
     line: '	DocumentRoot /var/www/{{ item }}'
-  with_items: "{{ client_list }}"
+  with_items: 
+     - "{{ client_list_w1 }}"
+     #- "{{ client_list_w2 }}"
 
 - name: VirtualHost on client conf apache2
   become: true
@@ -20,7 +24,9 @@
     path: /etc/apache2/sites-available/{{ item }}.conf
     regexp: '^<VirtualHost'
     line: '<VirtualHost {{ inventory_hostname }}:80>'
-  with_items: "{{ client_list }}"
+  with_items: 
+     - "{{ client_list_w1 }}"
+     #- "{{ client_list_w2 }}"
 
 
 
