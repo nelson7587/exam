@@ -18,9 +18,9 @@
 
       - name: import the database
         mysql_db:
-          name: wordpress
+          name: database
           state: import
-          target: /home/itesciadmin/wordpress.sql
+          target: /home/itesciadmin/database.sql
           login_host: 10.0.0.142
           login_user: root
           login_password: 'itescia'
