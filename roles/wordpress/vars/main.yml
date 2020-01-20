@@ -1,5 +1,8 @@
 ---
 # vars file for wordpress
+
 client_list:
-   - client1
-   - client2
+ - client1
+ - client2
+#include_tasks: inventory_w1.yml
+#include_tasks: inventory_w2.yml
