@@ -1,0 +1,6 @@
+---
+- name: Restore database
+  mysql_db:
+    name: all
+    state: import
+    target: /tmp/dump.sql
