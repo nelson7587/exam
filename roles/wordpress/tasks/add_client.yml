@@ -1,0 +1,5 @@
+- name: Create client repo
+  become: true
+  command: cp -r /var/www/wordpress /var/www/{{ item }}
+  with_items: "{{ client_list }}"
+

@@ -1,0 +1,4 @@
+- name : Wordpress clients
+  hosts: W1
+  roles:
+    - wordpress
