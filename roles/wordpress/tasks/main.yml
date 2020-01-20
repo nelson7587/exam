@@ -2,3 +2,4 @@
 # tasks file for wordpress
 - import_tasks: add_client.yml
 - import_tasks: config_webserver.yml
+- import_tasks: config_client_web.yml
