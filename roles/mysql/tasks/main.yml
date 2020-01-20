@@ -1,2 +1,5 @@
 ---
 # tasks file for mysql
+
+- include : dump_db.yml
+- include : restore_db.yml
