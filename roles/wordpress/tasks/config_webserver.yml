@@ -1,0 +1,4 @@
+- name: Copy file to a remote server
+  become: true
+  command: cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/{{ item }}.conf
+  with_items: "{{ client_list }}"

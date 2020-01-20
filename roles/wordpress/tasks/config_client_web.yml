@@ -1,0 +1,18 @@
+- name: ServerName on client conf apache2
+  become: true
+  lineinfile:
+    path: /etc/apache2/sites-available/{{ item }}.conf
+    regexp: '^	#ServerName'
+    line: '	ServerName www.{{ item }}.itescia05.local'
+  with_items: "{{ client_list }}"
+
+- name: DocumentRoot on client conf apache2
+  become: true
+  lineinfile:
+    path: /etc/apache2/sites-available/{{ item }}.conf
+    regexp: '^	DocumentRoot'
+    line: '	DocumentRoot /var/www/{{ item }}'
+  with_items: "{{ client_list }}"
+
+
+

@@ -1,3 +1,8 @@
 ---
 # tasks file for wordpress
 - import_tasks: add_client.yml
+- import_tasks: config_webserver.yml
+- import_tasks: config_client_web.yml
+- import_tasks: config_wp.yml
+- import_tasks: add_entry_to_dns.yml
+- import_tasks: activate_web.yml
